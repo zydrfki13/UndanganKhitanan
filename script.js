@@ -104,3 +104,71 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 });
+
+// ========== FUNGSI RSVP SINGKAT ==========
+function getNamaTamu() {
+  const params = new URLSearchParams(window.location.search);
+  let nama = params.get('to');
+  if (!nama) {
+    nama = document.querySelector(".nama-tamu")?.innerText || "Tamu Undangan";
+  }
+  return decodeURIComponent(nama);
+}
+
+function rsvpHadir() {
+  let namaTamu = getNamaTamu();
+  let nomorWA = "6281234567890"; // GANTI DENGAN NOMOR WA ANDA!
+  
+  let pesan = `Assalamu'alaikum, saya *${namaTamu}* %0A✅ *HADIR* khitanan Arkana Syabil, Rabu 3 Juni 2026. %0A%0AWaalaikumsalam.`;
+  
+  let urlWA = `https://wa.me/${nomorWA}?text=${pesan}`;
+  window.open(urlWA, '_blank');
+}
+
+function rsvpTidakHadir() {
+  let namaTamu = getNamaTamu();
+  let nomorWA = "6281234567890"; // GANTI DENGAN NOMOR WA ANDA!
+  
+  let pesan = `Assalamu'alaikum, saya *${namaTamu}* %0A❌ *TIDAK BISA HADIR* khitanan Arkana Syabil. %0A%0AMohon maaf & semoga acara lancar. Waalaikumsalam.`;
+  
+  let urlWA = `https://wa.me/${nomorWA}?text=${pesan}`;
+  window.open(urlWA, '_blank');
+}
+
+// TAMBAHKAN EFEK KLIK YANG LEBIH INTERAKTIF (opsional)
+document.querySelectorAll('.rsvp-card').forEach(card => {
+  card.addEventListener('click', function(e) {
+    // Tambah efek ripple
+    let ripple = document.createElement('div');
+    ripple.style.position = 'absolute';
+    ripple.style.borderRadius = '50%';
+    ripple.style.backgroundColor = 'rgba(255,215,0,0.3)';
+    ripple.style.width = '0';
+    ripple.style.height = '0';
+    ripple.style.transform = 'translate(-50%, -50%)';
+    ripple.style.pointerEvents = 'none';
+    
+    let rect = this.getBoundingClientRect();
+    let x = e.clientX - rect.left;
+    let y = e.clientY - rect.top;
+    
+    ripple.style.left = x + 'px';
+    ripple.style.top = y + 'px';
+    ripple.style.position = 'absolute';
+    
+    this.style.position = 'relative';
+    this.style.overflow = 'hidden';
+    this.appendChild(ripple);
+    
+    setTimeout(() => {
+      ripple.style.width = '300px';
+      ripple.style.height = '300px';
+      ripple.style.transition = 'all 0.5s ease-out';
+      ripple.style.opacity = '0';
+    }, 10);
+    
+    setTimeout(() => {
+      ripple.remove();
+    }, 500);
+  });
+});
