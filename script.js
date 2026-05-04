@@ -105,13 +105,25 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 });
 
-// ========== FUNGSI RSVP SINGKAT ==========
+// ========== FUNGSI RSVP YANG WAJIB PAKAI INI ==========
 function getNamaTamu() {
   const params = new URLSearchParams(window.location.search);
   let nama = params.get('to');
-  if (!nama) {
-    nama = document.querySelector(".nama-tamu")?.innerText || "Tamu Undangan";
+  
+  if (!nama || nama === "") {
+    const namaElement = document.querySelector(".nama-tamu");
+    if (namaElement) {
+      nama = namaElement.innerText;
+      if (nama === "Tamu Undangan" || nama === "Keluarga & Sahabat") {
+        nama = "Tamu Undangan";
+      }
+    }
   }
+  
+  if (!nama || nama === "") {
+    nama = "Tamu Undangan";
+  }
+  
   return decodeURIComponent(nama);
 }
 
@@ -119,9 +131,13 @@ function rsvpHadir() {
   let namaTamu = getNamaTamu();
   let nomorWA = "6287785388488"; // GANTI DENGAN NOMOR WA ANDA!
   
-  let pesan = `Assalamu'alaikum, saya *${namaTamu}* %0A✅ *HADIR* khitanan Arkana Syabil, Rabu 3 Juni 2026. %0A%0AWaalaikumsalam.`;
+  // PAKAI \n BUKAN %0A - lebih universal
+  let pesan = `Assalamu'alaikum, saya ${namaTamu}\n✅ HADIR khitanan Arkana Syabil, Rabu 3 Juni 2026.\n\nWaalaikumsalam.`;
   
-  let urlWA = `https://wa.me/${nomorWA}?text=${pesan}`;
+  // Encode untuk URL
+  let pesanEncoded = encodeURIComponent(pesan);
+  let urlWA = `https://wa.me/${nomorWA}?text=${pesanEncoded}`;
+  
   window.open(urlWA, '_blank');
 }
 
@@ -129,9 +145,11 @@ function rsvpTidakHadir() {
   let namaTamu = getNamaTamu();
   let nomorWA = "6287785388488"; // GANTI DENGAN NOMOR WA ANDA!
   
-  let pesan = `Assalamu'alaikum, saya *${namaTamu}* %0A❌ *TIDAK BISA HADIR* khitanan Arkana Syabil. %0A%0AMohon maaf & semoga acara lancar. Waalaikumsalam.`;
+  let pesan = `Assalamu'alaikum, saya ${namaTamu}\n❌ TIDAK BISA HADIR khitanan Arkana Syabil.\n\nMohon maaf & semoga acara lancar. Waalaikumsalam.`;
   
-  let urlWA = `https://wa.me/${nomorWA}?text=${pesan}`;
+  let pesanEncoded = encodeURIComponent(pesan);
+  let urlWA = `https://wa.me/${nomorWA}?text=${pesanEncoded}`;
+  
   window.open(urlWA, '_blank');
 }
 
