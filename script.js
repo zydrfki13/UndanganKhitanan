@@ -117,7 +117,7 @@ function getNamaTamu() {
 
 function rsvpHadir() {
   let namaTamu = getNamaTamu();
-  let nomorWA = "6287785388488"; // GANTI DENGAN NOMOR WA ANDA!
+  let nomorWA = "6281234567890"; // GANTI DENGAN NOMOR WA ANDA!
   
   let pesan = `Assalamu'alaikum, saya *${namaTamu}* %0A✅ *HADIR* khitanan Arkana Syabil, Rabu 3 Juni 2026. %0A%0AWaalaikumsalam.`;
   
@@ -127,7 +127,7 @@ function rsvpHadir() {
 
 function rsvpTidakHadir() {
   let namaTamu = getNamaTamu();
-  let nomorWA = "6287785388488"; // GANTI DENGAN NOMOR WA ANDA!
+  let nomorWA = "6281234567890"; // GANTI DENGAN NOMOR WA ANDA!
   
   let pesan = `Assalamu'alaikum, saya *${namaTamu}* %0A❌ *TIDAK BISA HADIR* khitanan Arkana Syabil. %0A%0AMohon maaf & semoga acara lancar. Waalaikumsalam.`;
   
