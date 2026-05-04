@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+<title>Undangan Tasyakuran Khitanan - Arkana Syabil Mulyadi</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700;800&family=Amiri:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+<link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+
+<!-- MUSIK BACKGROUND -->
+<audio id="musik" loop preload="auto">
+  <source src="instrumental islamic.mp3" type="audio/mpeg">
+</audio>
+
+<!-- ISLAMIC ORNAMENTS PREMIUM -->
+<div class="ornamen-container">
+  <div class="ornamen-arabesque top-left"></div>
+  <div class="ornamen-arabesque top-right"></div>
+  <div class="ornamen-arabesque bottom-left"></div>
+  <div class="ornamen-arabesque bottom-right"></div>
+  <div class="bintang-bintang">
+    <div class="star star1">⭐</div>
+    <div class="star star2">⭐</div>
+    <div class="star star3">⭐</div>
+    <div class="star star4">⭐</div>
+    <div class="star star5">⭐</div>
+    <div class="star star6">⭐</div>
+  </div>
+  <div class="bulan-sabit">
+    <i class="fas fa-moon"></i>
+  </div>
+  <div class="lampu-lampion">
+    <i class="fas fa-lantern"></i>
+    <i class="fas fa-lantern"></i>
+  </div>
+</div>
+
+<!-- COVER / PEMBUKA UNDANGAN -->
+<div class="cover" id="cover">
+  <div class="cover-ornamen"></div>
+  <div class="cover-content">
+    <div class="cover-icon">
+      <i class="fas fa-envelope-open-text"></i>
+    </div>
+    <span class="label-undangan">Undangan</span>
+    <h3>تَقَبَّلَ اللَّهُ مِنَّا وَمِنْكُمْ</h3>
+    <h2>Tasyakuran Khitanan</h2>
+    <h1 class="nama-cover">Arkana Syabil <br>Mulyadi</h1>
+    <p>Kepada Yth.</p>
+    <h3 class="nama-tamu">Tamu Undangan</h3>
+    <button class="btn-buka" onclick="bukaUndangan()">
+      <i class="fas fa-envelope"></i> Buka Undangan 
+      <i class="fas fa-arrow-right"></i>
+    </button>
+  </div>
+</div>
+
+<!-- MAIN CONTENT (AWALNYA HIDDEN) -->
+<div id="content" class="main-content hidden">
+
+<!-- SECTION 1: PEMBUKA -->
+<section class="fade">
+  <div class="section-icon">
+    <i class="fas fa-hand-peace"></i>
+  </div>
+  <h2>Assalamu'alaikum Warahmatullahi Wabarakatuh</h2>
+  <div class="border-gold"></div>
+  <p>Dengan memohon rahmat dan ridha Allah SWT, kami mengundang Bapak/Ibu/Saudara/i untuk hadir pada acara tasyakuran khitanan putra kami:</p>
+  <div class="nama-besar">
+    <h1 class="nama">Arkana Syabil Mulyadi</h1>
+  </div>
+  <p>Putra dari Bapak Edi Mulyadi & Ibu Nina Maria</p>
+  <div class="quote-islami">
+    <i class="fas fa-quote-right"></i>
+    <p>سُبْحَانَ الَّذِي خَلَقَ الْأَزْوَاجَ كُلَّهَا</p>
+  </div>
+</section>
+
+<!-- SECTION 2: DETAIL ACARA -->
+<section class="fade">
+  <div class="section-icon">
+    <i class="fas fa-calendar-alt"></i>
+  </div>
+  <h2>Detail Acara</h2>
+  <div class="border-gold"></div>
+  <div class="card-detail">
+    <div class="detail-item">
+      <i class="fas fa-calendar-day"></i>
+      <p>Rabu, 03 Juni 2026</p>
+    </div>
+    <div class="detail-item">
+      <i class="fas fa-clock"></i>
+      <p>09.00 WIB - Selesai</p>
+    </div>
+    <div class="detail-item">
+      <i class="fas fa-map-marker-alt"></i>
+      <p>Kediaman Bapak Edi Mulyadi<br>Jl. Raya Cilegon, Kec. Cinangka</p>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 3: COUNTDOWN PREMIUM -->
+<section class="fade">
+  <div class="section-icon">
+    <i class="fas fa-hourglass-half"></i>
+  </div>
+  <h2>Menuju Hari Bahagia</h2>
+  <div class="border-gold"></div>
+  <div class="countdown-premium" id="countdown">
+    <div class="countdown-box"><span id="hari">00</span><small>Hari</small></div>
+    <div class="countdown-box"><span id="jam">00</span><small>Jam</small></div>
+    <div class="countdown-box"><span id="menit">00</span><small>Menit</small></div>
+    <div class="countdown-box"><span id="detik">00</span><small>Detik</small></div>
+  </div>
+</section>
+
+<!-- SECTION 4: GALERI FOTO -->
+<section class="fade">
+  <div class="section-icon">
+    <i class="fas fa-images"></i>
+  </div>
+  <h2>Galeri Kenangan</h2>
+  <div class="border-gold"></div>
+  <div class="gallery">
+    <div class="gallery-item"><img src="banner.jpeg" alt="Foto 1"></div>
+    <div class="gallery-item"><img src="syabil1.jpeg" alt="Foto 2"></div>
+    <div class="gallery-item"><img src="syabil2.jpeg" alt="Foto 3"></div>
+    <div class="gallery-item"><img src="syabil3.jpeg" alt="Foto 4"></div>
+    <div class="gallery-item"><img src="syabil4.jpeg" alt="Foto 5"></div>
+  </div>
+</section>
+
+<!-- SECTION 5: LOKASI -->
+<section class="fade">
+  <div class="section-icon">
+    <i class="fas fa-location-dot"></i>
+  </div>
+  <h2>📍 Lokasi Acara</h2>
+  <div class="border-gold"></div>
+  <div class="map-container">
+    <iframe src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3966.8846477568122!2d105.85344707498976!3d-6.14619199384083!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zNsKwMDgnNDYuMyJTIDEwNcKwNTEnMjEuNyJF!5e0!3m2!1sid!2sid!4v1777883045741!5m2!1sid!2sid" width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+  </div>
+  <button class="btn-lokasi" onclick="window.open('https://maps.app.goo.gl/...')">
+    <i class="fab fa-google"></i> Buka di Google Maps
+  </button>
+</section>
+
+<!-- SECTION 6: PENUTUP -->
+<section class="fade">
+  <div class="section-icon">
+    <i class="fas fa-heart"></i>
+  </div>
+  <h2>Terima Kasih</h2>
+  <div class="border-gold"></div>
+  <p>Kehadiran dan doa restu Bapak/Ibu merupakan kebahagiaan tersendiri bagi kami.</p>
+  <div class="doa-penutup">
+    <p>وَالسَّلاَمُ عَلَيْكُمْ وَرَحْمَةُ اللهِ وَبَرَكَاتُهُ</p>
+  </div>
+</section>
+
+<!-- SECTION 7: AMPLOP DIGITAL -->
+<section class="fade">
+  <div class="section-icon">
+    <i class="fas fa-gift"></i>
+  </div>
+  <h2>Amplop Digital</h2>
+  <div class="border-gold"></div>
+  <p>Doa restu Anda adalah kado terindah. Namun jika ingin memberikan tanda kasih:</p>
+  
+  <div class="qris-box">
+    <div class="qris-label">Scan QRIS</div>
+    <img src="qrisdana.jpeg" class="qris" alt="QRIS">
+  </div>
+  
+  <div class="rekening-box">
+    <i class="fas fa-university"></i>
+    <p><strong>BCA - 6510495932</strong><br>a.n Ziyad Rifki Hidayatullah</p>
+  </div>
+  
+  <button class="btn-copy" onclick="copyRek()">
+    <i class="fas fa-copy"></i> Salin No Rekening
+  </button>
+</section>
+
+<!-- MUSIK CONTROL -->
+<div class="music-control" id="musicControl" onclick="toggleMusik()">
+  <i class="fas fa-music"></i>
+</div>
+
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
